@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Edit User - {{id}}</h2>
+        </div>
+    </div>
+   <form [formGroup]="userForm" (ngSubmit)="submitdata()">
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="">User ID</label>
+            <input [ngClass]="{
+                'has-error':userForm.controls.userID.touched && userForm.controls.userID.invalid,
+                'has-success' : userForm.controls.userID.touched && userForm.controls.userID.valid
+            }" type="text" formControlName="userID" class="form-control">
+            <span style="color:red;"
+            *ngIf="userForm.controls.userID.touched && userForm.controls.userID.invalid">Please Enter User ID</span>
+        </div>
+        <div class="col-lg-6">
+            <label for="">User Name</label>
+            <input [ngClass]="{
+                'has-error':userForm.controls.userName.touched && userForm.controls.userName.invalid,
+                'has-success' : userForm.controls.userName.touched && userForm.controls.userName.valid
+            }" type="text" formControlName="userName" class="form-control">
+            <span style="color:red;"
+            *ngIf="userForm.controls.userName.touched && userForm.controls.userName.invalid">Please Enter User Name</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="">User Email</label>
+            <input [ngClass]="{
+                'has-error':userForm.controls.userEmail.touched && userForm.controls.userEmail.invalid,
+                'has-success' : userForm.controls.userEmail.touched && userForm.controls.userEmail.valid
+            }" type="email" formControlName="userEmail" class="form-control">
+            <span style="color:red;"
+             *ngIf="userForm.controls.userEmail.touched && userForm.controls.userEmail.invalid">Please Enter Valid Email</span>
+        </div>
+        <div class="col-lg-6">
+            <label for="">Phone Number</label>
+            <input [ngClass]="{
+                'has-error':userForm.controls.phoneNumber.touched && userForm.controls.phoneNumber.invalid,
+                'has-success' : userForm.controls.phoneNumber.touched && userForm.controls.phoneNumber.valid
+            }" type="number" formControlName="phoneNumber" class="form-control">
+            <span style="color:red;"
+            *ngIf="userForm.controls.phoneNumber.touched && userForm.controls.phoneNumber.invalid">Please Enter valid Phone Number</span>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12">
+            <input type="submit" class="btn btn-primary btn-sm">
+        </div>
+    </div>
+   </form>
+</div>
